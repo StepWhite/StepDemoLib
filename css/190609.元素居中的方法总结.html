@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/**
+        1. 针对文档标准流的块元素
+            margin: 0 auto;
+        2. 针对绝对定位的元素
+             left: 50%;
+             top: 50%;
+             margin-left: -(元素宽度的一半)px;
+             margin-top: -(元素高度的一半)px;
+         3. text-align 可以设置块元素内的文本、图片等行内元素和行内块的排列方式。
+         	如果该块内有多个非块元素，则这些非块元素会一起整体居中
+         4. vertical-align 通常用来设置文本在和图片一起兄弟排列时的对齐方式
+
+         */
+		.natural {
+			background: red;
+			width: 30px;
+			height: 30px;
+			margin: 0 auto;
+		}
+		.parentRel {
+			background: green;
+			height: 80px;
+			position: relative;
+		}
+		.childAbsol {
+			background: blue;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -15px;
+			margin-top: -15px;
+		}
+		.midInline {
+			text-align: center;
+		}
+		.verticalAlignImg {
+			vertical-align: middle;
+		}
+	</style>
+
+</head>
+<body>
+<div class="natural" ></div>
+<div class="parentRel">
+	<div class="childAbsol"></div>
+</div>
+<div class="midInline">
+	<span>文字与图片的垂直居中对齐方式</span>
+	<img class="verticalAlignImg" src="images/190609.精灵图的使用1.jpg" alt="">
+</div>
+
+</body>
+</html>

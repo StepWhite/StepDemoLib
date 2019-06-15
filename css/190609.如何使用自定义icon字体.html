@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iconmoon字体</title>
+	<style>
+	/* 
+
+	步骤：
+	1. 先到 https://icomoon.io/app/#/select 中选定icon并下载文件
+	2. 在css中通过@font-face引入字体文件并通过font-familiy自定义名字，其它
+	3. 给需要使用icon的元素赋值一个带font-familiy的类，并赋值一个content的属性（值要在下载的文件中查找），或者在html元素中粘贴值（值要在下载的文件中查找）。通常是定义一个带该font-family的类 .icon，在另一个类 .icon- 中赋值content属性，然后将这两个类同时赋值给需要使用该icon的元素
+
+	维护：
+	可以到 https://icomoon.io/app/#/select 中导入文件并增减icon后再下载
+
+	 */
+	
+		@font-face {
+			font-family: "fontDemo";
+		  	src:  url('fonts/190609自定义icon字体/fonts/icomoon.eot?7kkyc2');
+		  	src:  url('fonts/190609自定义icon字体/fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+			    url('fonts/190609自定义icon字体/fonts/icomoon.ttf?7kkyc2') format('truetype'),
+			    url('fonts/190609自定义icon字体/fonts/icomoon.woff?7kkyc2') format('woff'),
+			    url('fonts/190609自定义icon字体/fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+		  	font-style: normal;  /*倾斜字体正常*/
+		}
+		.icon {
+			font-family: "fontDemo";
+		  	font-size: 20px;
+		}
+		.icon-home:before {
+		  	content: "\e900";
+		  	color: red;
+		}
+	</style>
+</head>
+<body>
+	<span class="icon icon-home"></span>
+</body>
+</html>

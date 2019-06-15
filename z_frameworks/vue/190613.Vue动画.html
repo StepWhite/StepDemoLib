@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+
+<!--过渡-->
+<style>
+    .customname-enter-active, .customname-leave-active {
+        transition: all .5s;
+    }
+    .customname-enter, .customname-leave-to  {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+</style>
+<div id="app1">
+    <button @click="show=!show" >切换过渡</button>
+    <transition name="customname">
+        <p v-if="show">过渡</p>
+    </transition>
+</div>
+<script>
+    // 创建 Vue 实例，得到 ViewModel
+    var vm = new Vue({
+        el: '#app1',
+        data: {show: true}
+    });
+</script>
+
+<!--动画-->
+<style>
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+<div id="app2">
+    <button @click="show=!show" >动画</button>
+    <transition name="bounce">
+        <p v-if="show">动画</p>
+    </transition>
+</div>
+<script>
+    // 创建 Vue 实例，得到 ViewModel
+    var vm = new Vue({
+        el: '#app2',
+        data:{show: true}
+    });
+</script>
+
+<!--自定义过渡类名-->
+<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+<div id="example-3">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition
+            name="custom-classes-transition"
+            enter-active-class="animated tada"
+            leave-active-class="animated bounceOutRight"
+    >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el: '#example-3',
+        data: {
+            show: true
+        }
+    })
+</script>
+
+
+<!--初始渲染的过渡 , 页面渲染后的出场动画-->
+<style>
+    .custom-appear-active-class {
+        animation: bounce-in .5s;
+    }
+    .custom-appear-to-class {
+        animation: bounce-in .5s reverse;
+    }
+</style>
+<div id="app3">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition appear
+            appear-class="custom-appear-class"
+            appear-to-class="custom-appear-to-class"
+            appear-active-class="custom-appear-active-class" >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el: '#app3',
+        data: {
+            show: true
+        }
+    })
+</script>
+
+
+<!--同时使用过渡和动画-->
+
+
+<!--多个元素的过渡-->
+<script>
+    /**
+     *
+     * 设置key属性
+     * 设置过渡模式mode属性 out-in / in-out
+     *
+     * */
+</script>
+
+<!--多个组件的过渡-->
+<script>
+    /**
+     * v-bind:is 设置动态组件
+     */
+</script>
+
+<!--列表的过渡-->
+
+
+
+
+</body>
+
+</html>

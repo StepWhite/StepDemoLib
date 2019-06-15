@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	/**
+		1. 不要只写opacity属性  
+		2. background-color: rgba(0,0,0,0.7); 也可以实现背景半透明，单只是兼容IE9以上版本
+	*/
+		/** 正确兼容写法： */
+		.alp {
+			filter:alpha(opacity=50);  /*支持 IE 浏览器*/
+			-moz-opacity:0.50; /*支持 FireFox 浏览器*/
+			-khtml-opacity: 0.5; /*webkit内核浏览器*/
+			opacity:0.50;  /*支持 Chrome, Opera, Safari 等浏览器*/
+		}
+	</style>
+</head>
+<body>
+	<div class="alp">fasdfsdf</div>
+</body>
+</html>

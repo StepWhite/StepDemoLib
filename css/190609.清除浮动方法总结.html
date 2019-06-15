@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/**
+		1. 额外标签法
+		是W3C推荐的做法是通过在浮动元素末尾添加一个空的标签例如 <div style=”clear:both”></div>，或则其他标签br等亦可。
+		优点： 通俗易懂，书写方便
+		缺点： 添加许多无意义的标签，结构化较差。  我只能说，w3c你推荐的方法我不接受，你不值得拥有。。。
+
+		2. 父级添加overflow属性方法
+		可以通过触发BFC的方式，可以实现清除浮动效果。（BFC后面讲解）
+		可以给父级添加： overflow为 hidden|auto|scroll  都可以实现。
+		优点：  代码简洁
+		缺点：  内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素。
+
+		3. 使用after伪元素清除浮动 - * 推荐
+		:after 方式为空元素的升级版，好处是不用单独加标签了
+		 .clearfix:after {
+		 	content: "";
+		 	display: block;
+		 	height: 0;
+		 	clear: both;
+		 	visibility: hidden;
+		 }
+		 .clearfix {*zoom: 1;}   IE6、7 专有
+		优点： 符合闭合浮动思想  结构语义化正确
+		缺点： 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。
+		代表网站： 百度、淘宝网、网易等
+
+		4. 使用before和after双伪元素清除浮动
+		.clearfix:before,.clearfix:after {
+		  content:"";
+		  display:table; 这句话可以触发BFC BFC可以清除浮动,BFC我们后面讲
+		}
+		.clearfix:after {
+			clear:both;
+		}
+		.clearfix {
+			*zoom:1;
+		}
+		优点：  代码更简洁
+		缺点：  由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。
+		代表网站： 小米、腾讯等
+
+		*/
+
+	/*******************************************************************************/
+	
+	/** 方法：给需要清浮动的元素添加clearfix类 */
+
+	.clearfix:after {  /*正常浏览器 清除浮动*/
+		content:"";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	.clearfix {
+		*zoom: 1;  /*zoom 1 就是ie6 清除浮动方式  *  ie7一下的版本所识别*/
+	}
+
+	/*******************************************************************************/
+
+
+	.father {
+		border: 1px solid red;
+		width: 300px;
+
+	}
+	.big {
+		width: 100px;
+		height: 100px;
+		background-color: purple;
+		float: left;
+	}
+	.small {
+		width: 80px;
+		height: 80px;
+		background-color: blue;
+		float: left;
+	}
+	.footer {
+		width: 400px;
+		height: 100px;
+		background-color: pink;
+	}
+	</style>
+</head>
+<body>
+	<div class="father clearfix">
+		<div class="big"></div>
+		<div class="small"></div>
+	</div>
+	<div class="footer"></div>
+</body>
+</html>

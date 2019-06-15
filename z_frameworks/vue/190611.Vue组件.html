@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+</div>
+
+<script>
+
+    // 创建 Vue 实例，得到 ViewModel
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '曾经，我也是一个单纯的少年，单纯的我，傻傻的问，谁是世界上最单纯的男人'
+        },
+        methods: {}
+    });
+    /**
+     * 命名
+        无限制
+
+     * 注册
+     * * 全局注册   通过Vue.component
+         Vue.component('my-component-name', {
+          // ... 选项 ...
+         })
+        使用：
+         <div id="app">
+         <my-component-name></my-component-name>
+         </div>
+     * * 局部注册   通过创建Vue实例时components属性
+        var ComponentA = { ... } ;//选项
+         new Vue({
+          el: '#app',
+          components: {
+            'component-a': ComponentA,
+            'component-b': ComponentB
+          }
+        })
+     *
+     */
+</script>
+</body>
+
+</html>

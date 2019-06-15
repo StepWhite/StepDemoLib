@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <h3 ref="h3ele">fsadfsd</h3>
+    <c1 ref="c1comp"></c1>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        mounted:function () {
+            console.log(this.$refs.h3ele.innerText);
+            console.log(this.$refs.c1comp.msg);
+        },
+        components: {
+            c1: {
+                template: "<p>i am p</p>",
+                data () {
+                    return {msg: 'i am msg in c1'}
+                },
+                methods:{}
+            }
+        }
+    });
+</script>
+</body>
+
+</html>
